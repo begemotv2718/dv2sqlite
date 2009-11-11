@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE refentry PUBLIC "-//OASIS//DTD DocBook XML V4.1.2//EN"
+          "http://www.oasis-open.org/docbook/xml/4.1.2/docbookx.dtd">
+<refentry id="dv2sqlite">
+
+  <refentryinfo>
+    <authorgroup>
+      <author>
+	<firstname>Yury</firstname>
+	<surname>Adamov</surname>
+      </author>
+    </authorgroup>
+  </refentryinfo>
+
+  <refmeta>
+    <refentrytitle>dv2sqlite</refentrytitle>
+    <manvolnum>1</manvolnum>
+  </refmeta>
+
+  <refnamediv>
+    <refname>dv2sub</refname>
+    <refpurpose>extract info or subtitles from DV stream</refpurpose>
+  </refnamediv>
+
+  <refsynopsisdiv>
+
+    <cmdsynopsis>
+      <command>dv2sqlite</command>
+      <group choice="req">
+        <arg choice="plain"><option>-d <replaceable class="option"> database-file</replaceable></option></arg>
+      </group>
+      <arg choice="req"><replaceable>dv-file1</replaceable></arg>
+      <arg choice="opt"><replaceable>dv-file2</replaceable></arg>
+      <arg choice="opt"><replaceable>...</replaceable></arg>
+    </cmdsynopsis>
+
+
+  </refsynopsisdiv>
+
+  <refsect1><title>DESCRIPTION</title>
+
+    <para>Utility <command>dv2sqlite</command> reads raw DV stream from file
+    argument <replaceable>dv-file</replaceable> or standard input if absent.
+
+    <para>Memory mapped I/O is used for seekable input when available.
+    It is faster than sequential access.</para>
+
+    <para><command>dv2sqlite</command> uses GPL codec for DV video LibDV, see
+    <ulink url="http://libdv.sourceforge.net/"/>.</para>
+
+  </refsect1>
+
+  <refsect1><title>OPTIONS</title>
+
+      <variablelist>
+
+	<varlistentry>
+	  <term><option>-d 
+	      <replaceable>database-file</replaceable></option></term>
+	  <listitem>
+	  <listitem>
+	    <para>Provide database file
+	    </para>
+	  </listitem>
+	</varlistentry>
+
+	<varlistentry>
+	  <term><option>-h, --help</option></term>
+	  <listitem>
+	    <para>Output a brief help message.
+	    </para>
+	  </listitem>
+	</varlistentry>
+
+	<varlistentry>
+	  <term><option>-V, --version</option></term>
+	  <listitem>
+	    <para>Output a version number.
+	    </para>
+	  </listitem>
+	</varlistentry>
+
+      </variablelist>
+
+  </refsect1>
+
+</refentry>
+<!-- vim: set sw=2: -->
