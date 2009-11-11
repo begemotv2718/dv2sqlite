@@ -1,9 +1,9 @@
 dnl Process this file with autoconf to produce a configure script.
 
 AC_PREREQ(2.59)
-AC_INIT(dv2sub, 0.3, http://dv2sub.sourceforge.net/)
+AC_INIT(dv2sqlite, 0.1, "")
 AC_CONFIG_AUX_DIR(autotools)
-AC_CONFIG_SRCDIR(src/dv2sub.c)
+AC_CONFIG_SRCDIR(src/dv2sqlite.c)
 AM_CONFIG_HEADER(src/config.h)
 AM_INIT_AUTOMAKE(AC_PACKAGE_NAME, AC_PACKAGE_VERSION)
 
