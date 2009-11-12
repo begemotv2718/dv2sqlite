@@ -165,11 +165,12 @@ static char const *progname;
 
 static void usage(int status)
 {
-    puts("Usage: dv2sub [options] [<dvfile>]\n"
+    puts("Usage: dv2sqlite [options] <dvfile> [<dvfile] ...\n"
 "\n"
 "Options:\n"
-" -v, --verbose             be verbose\n"
+" -d, --dbfile <dbfilename> specify the database filename"
 " -h, --help                this short usage listing\n"
+" -v, --verbose             be verbose\n"
 " -V, --version             utility version info\n"
 "\n"
 "Report bugs to " PACKAGE_BUGREPORT
@@ -181,6 +182,7 @@ int main(int argc, char *argv[], char *env[])
 {
     progname = argv[0];
     char *db_filename="test.db";
+    int verbose_flag=0;
     if ( argc == 1 )
 	usage(1);
 
@@ -190,12 +192,14 @@ int main(int argc, char *argv[], char *env[])
 	    {
 		{"dbfile", required_argument, NULL, 'd'},
 		{"help", no_argument, NULL, 'h'},
+                {"version",no_argument,NULL,'V'},
+                {"verbose",no_argument,NULL,'v'},
 		{0, 0, 0, 0}
 	    };
 	/* `getopt_long' stores the option index here. */
 	int option_index = 0;
 
-	int c = getopt_long(argc, argv, "d:h",
+	int c = getopt_long(argc, argv, "d:hvV",
 		long_options, &option_index);
 
 	/* Detect the end of the options. */
@@ -208,6 +212,11 @@ int main(int argc, char *argv[], char *env[])
             break;
           case 'h':
             usage(1);
+          case 'V':
+            puts("Version 0.1\n");
+            exit(0);
+          case 'v':
+            verbose_flag=1;
         }    
     }
 
